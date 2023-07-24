@@ -1,0 +1,7 @@
+{
+  "name": "iconntv-ads",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
