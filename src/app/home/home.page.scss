@@ -25,3 +25,15 @@
 #container a {
   text-decoration: none;
 }
+
+.hide-toolbar{
+  visibility: hidden;
+}
+
+.show-toolbar{
+  visibility: visible;
+}
+
+.divMenu{
+  z-index: 2;
+}

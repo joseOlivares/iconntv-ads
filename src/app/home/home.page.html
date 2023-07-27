@@ -1,10 +1,18 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Home
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+
+<div (mouseover)="showToolbar()" (mouseout)="hideToolbar()" class="divMenu">
+  <ion-header [translucent]="true" [ngClass]="{'show-toolbar': clicked, 'hide-toolbar': !clicked}">
+    <ion-toolbar> <!--color="primary"-->
+      <ion-title>
+        Home
+      </ion-title>
+      <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+</div>
+
+
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
@@ -14,7 +22,11 @@
   </ion-header>
 
   <div id="container">
-    <ion-button [routerLink]="['/config']" shape="round">Configurations</ion-button>
-
+    <swiper-container [slides-per-view]="1" [speed]="2000" [loop]="true" [css-mode]="true"
+     [autoplay]="{delay:5000}" effect="coverflow" (tap)="hideToolbar()">
+      <swiper-slide *ngFor="let photo of xPhotos">
+        <img src={{photo.urls.full}}/>
+      </swiper-slide>
+    </swiper-container>
   </div>
 </ion-content>
